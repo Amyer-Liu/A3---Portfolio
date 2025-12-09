@@ -1,23 +1,1331 @@
 <!DOCTYPE html>
-<style>
-  /* netnet default bg */
-  body {
-    margin: 0;
-    background-image: linear-gradient(#515199a8 2px, transparent 1px),
-      linear-gradient(90deg, #515199a8 2px, transparent 1px);
-    background-size: 50px 50px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8">
+    <title>Amy Liu - Portfolio</title>
+    <!-- Created by Amy Liu on 2025 Dec 3 -->
 
-  body::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(0deg, #c76ebca8, #515199a8);
-  }
-</style>
-    
+    <!-- Google Fonts - Inconsolata + Indie Flower -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Inconsolata", monospace;
+        justify-content: center;
+        display: flex;
+      }
+
+      .frame {
+        width: 100%;
+        max-width: 1440px;
+        background-color: #f7f4ef;
+        padding: 120px 0;
+      }
+
+      .content-wrapper {
+        width: 1200px;
+        background-color: #ffffff;
+        margin: 0 auto;
+        padding-top: 50px;
+      }
+
+      .header-banner {
+        text-align: center;
+        padding: 0 0 2.5em 0;
+      }
+
+      .header-banner img {
+        width: 90%;
+        height: auto;
+      }
+
+      /* ─────────────── NAVIGATION MENU ─────────────── */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e7d8c6;
+        padding: 20px 30px;
+        gap: 40px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 40px;
+        color: #d7a4c5;
+        padding: 0.3em 0.6em;
+      }
+
+      nav a:visited {
+        color: #c39cb9;
+      }
+
+      nav a:hover {
+        color: #de3783;
+      }
+
+      nav a:active,
+      nav a:focus {
+        color: #de3783;
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-thickness: 8px;
+        text-underline-offset: 10px;
+      }
+
+      .logo img {
+        width: auto;
+        height: 120px;
+        display: block;
+      }
+
+      /* ─────────────── ID Links ─────────────── */
+      #home,
+      #education,
+      #skills,
+      #projects {
+        min-height: 700px;
+        box-sizing: border-box;
+      }
+
+      #home {
+        background-color: #244196;
+        color: #ffffff;
+        padding: 0;
+      }
+
+      #education,
+      #skills {
+        background-color: #ede8e2;
+        color: #244196;
+        padding: 60px 80px;
+      }
+
+      #projects {
+        background-color: #ffffff;
+        padding: 0;
+      }
+
+      /* ─────────────── HOME:ABOUT ME SECTION ─────────────── */
+      .about-container {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 40px;
+        padding: 4em 5em 4em;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      .left-column {
+        position: relative;
+        z-index: 20;
+      }
+
+      .left-column img {
+        width: 100%;
+        height: auto;
+        border: 6px solid #d7a4c5;
+        border-radius: 15px;
+        margin: 8em 0 2em 0;
+        display: block;
+      }
+
+      .contact-box {
+        color: white;
+        padding: 1em 2em;
+        display: inline-block;
+        margin: -1em 0 0 -2em;
+        font-size: 22px;
+        line-height: 1.2;
+        position: relative;
+        z-index: 30;
+      }
+
+      .contact-box h3 {
+        font-family: "Indie Flower", cursive;
+        font-size: 25px;
+        font-weight: 700;
+        color: #d7a4c5;
+        margin: 0 0 0.5em 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      #home .contact-box a {
+        color: white;
+        text-decoration: none;
+      }
+
+      #home .contact-box a:hover {
+        color: #DE3783;
+        text-decoration: underline;
+      }
+
+      .right-column h1 {
+        font-family: "Indie Flower", cursive;
+        font-size: 60px;
+        color: #d7a4c5;
+        margin: 0.3em 0 0.8em 2.5em;
+        text-transform: uppercase;
+      }
+
+      .right-column p {
+        font-family: "Inconsolata", monospace;
+        font-size: 25px;
+        line-height: 1.6;
+        margin: -1.3em 1.3em 2em 1em;
+      }
+
+      .about-character {
+        position: absolute;
+        right: 20px;
+        bottom: -80px;
+        width: 180px;
+        height: auto;
+        z-index: 5;
+      }
+
+      .about-dec {
+        position: absolute;
+        right: 100px;
+        bottom: 50px;
+        width: 200px;
+        height: auto;
+        z-index: 4;
+      }
+
+      .about-dec-line {
+        position: absolute;
+        right: 180px;
+        bottom: -120px;
+        width: 350px;
+        height: auto;
+        z-index: 3;
+      }
+
+      .about-dec-line-2 {
+        right: 500px;
+      }
+
+      .about-dec-line-3 {
+        right: 830px;
+      }
+
+      .about-character,
+      .about-dec,
+      .about-dec-line {
+        pointer-events: none;
+      }
+
+      /* ─────────────── HOME:PROJECT OVERVIEW─────────────── */
+      .projects {
+        background-color: #ede8e2;
+        padding: 6em 6em;
+      }
+
+      .projects h2 {
+        font-family: "Indie Flower", cursive;
+        color: #244196;
+        font-size: 60px;
+        text-transform: uppercase;
+        margin: -0.6em 0 0.4em -1em;
+      }
+
+      .project-row {
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+      }
+
+      .project-card {
+        flex: 0 0 auto;
+        text-align: center;
+        text-decoration: none;
+        color: #244196;
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1em;
+      }
+
+      .project-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .project-frame {
+        background-color: #e6d9c7;
+        padding: 1.1em;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+        height: 350px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-card:hover .project-frame {
+        background-color: #d7a4c5;
+      }
+
+      .project-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+        display: block;
+        transition: transform 0.3s;
+      }
+
+      .project-card:hover .project-frame img {
+        transform: scale(1.15);
+      }
+
+      .project-name {
+        display: inline-block;
+        margin-top: 1em;
+        padding: 0.6em 1.4em;
+        border-radius: 60px;
+        background-color: #244196;
+        color: #ffffff;
+        font-weight: 200;
+        font-size: 25px;
+        transition: background-color 0.3s;
+      }
+
+      .project-card:hover .project-name {
+        background-color: #de3783;
+      }
+
+      /* ─────────────── EDUCATION─────────────── */
+      #education {
+        padding: 0;
+      }
+
+      #education .edu-top {
+        background-color: #244196;
+        color: #ffffff;
+        padding: 6em 6em 2em;
+      }
+
+      #education .edu-top-grid {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        gap: 64px;
+        align-items: start;
+      }
+
+      #education .edu-heading {
+        font-family: "Indie Flower", cursive;
+        font-size: 60px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin: 0 0 40px 10px;
+        color: #ffffff;
+      }
+
+      #education .timeline-item {
+        margin-bottom: 60px;
+      }
+
+      #education .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin-bottom: 20px;
+      }
+
+      #education .meta-star {
+        color: #de3783;
+        font-size: 60px;
+        line-height: 1;
+      }
+
+      #education .meta-pill {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: #5580b5;
+        font-size: 35px;
+      }
+
+      #education .timeline-title {
+        margin: 0 0 8px 2em;
+        font-size: 35px;
+        font-weight: 200;
+      }
+
+      #education .timeline-sub {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.5;
+        max-width: 400px;
+        margin-left: 2.7em;
+        padding-top: 0.3em;
+      }
+
+      #education .software-item {
+        display: grid;
+        grid-template-columns: 12% 88%;
+        gap: 22px;
+        align-items: center;
+        margin: 50px 0;
+      }
+
+      #education .software-badge {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        background: #5580b5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #education .software-badge img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        display: block;
+      }
+
+      #education .stars {
+        justify-self: start;
+        align-self: center;
+        font-size: 60px;
+        letter-spacing: 25px;
+        line-height: 1;
+        margin-top: -0.1em;
+        color: #de3783;
+      }
+
+      #education .star-off {
+        color: #5580b5;
+      }
+
+      #education .edu-exp {
+        position: relative;
+      }
+
+      #education .butterfly-decoration {
+        position: absolute;
+        bottom: -180px;
+        right: -200px;
+        width: 400px;
+        height: 400px;
+        object-fit: contain;
+      }
+
+      #education .exp-grid {
+        display: grid;
+        grid-template-columns: 47% 53%;
+        gap: 80px;
+        align-items: start;
+      }
+
+      #education .edu-extras {
+        background-color: #ede8e2;
+        color: #244196;
+        padding: 48px 90px 54px;
+        text-align: center;
+      }
+
+      #education .extras-title {
+        font-family: "Indie Flower", cursive;
+        font-size: 60px;
+        margin: 0 0 34px 0;
+        color: #244196;
+      }
+
+      #education .extras-row {
+        display: grid;
+        grid-template-columns: 150px 150px 150px 150px 150px 150px;
+        gap: 45px;
+        justify-content: center;
+        justify-items: center;
+        align-items: start;
+      }
+
+      #education .extra-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      #education .extra-icon {
+        margin-bottom: 15px;
+      }
+
+      #education .extra-icon img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        display: block;
+      }
+
+      #education .extra-label {
+        margin: 0;
+        color: #de3783;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1.15;
+      }
+
+      #education .edu-bottom {
+        background-color: #244196;
+        color: white;
+        padding: 76px 90px;
+        position: relative;
+      }
+
+      #education .bottom-grid {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 60px;
+        align-items: start;
+      }
+
+      #education .line-decoration {
+        position: absolute;
+        top: -30px;
+        right: 0;
+        width: 700px;
+        height: auto;
+        z-index: 5;
+      }
+
+      #education .lang-item {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        margin: 50px 0;
+      }
+
+      #education .lang-name {
+        font-size: 60px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      #education .lang-level {
+        font-size: 40px;
+        font-weight: 400;
+        align-self: end;
+        color: #d7a4c5;
+      }
+
+      #education .involve-table {
+        margin: 110px 0 0 -30px;
+        width: 100%;
+        border: 7px solid #9dc1d9;
+        border-radius: 20px;
+      }
+
+      #education .involve-table th {
+        background-color: #9dc1d9;
+        color: #ffffff;
+        border-radius: 3px;
+        padding: 20px;
+        font-size: 40px;
+        font-family: "Indie Flower", cursive;
+        text-align: center;
+      }
+
+      #education .involve-table td {
+        background-color: #f8f8f8;
+        color: #244196;
+        padding: 20px 30px;
+        font-size: 28px;
+        border-radius: 5px;
+        border-bottom: 1px solid #e0e0e0;
+        text-align: center;
+      }
+
+      #education .book-image {
+        position: absolute;
+        bottom: -10px;
+        right: -80px;
+        z-index: 10;
+      }
+
+      #education .book-image img {
+        width: 300px;
+        height: auto;
+      }
+
+      /* ─────────────── SKILLS SECTION─────────────── */
+      #skills {
+        padding: 0;
+        position: relative;
+      }
+
+      #skills .skills-top {
+        background-color: #9dc1d9;
+        color: #ffffff;
+        padding: 60px 0;
+        position: relative;
+      }
+
+      #skills .skills-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      #skills .skills-title-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        background: #6f8fb9;
+        border-radius: 4em;
+        padding: 14px 28px;
+        margin-left: 2em;
+      }
+
+      #skills .skills-title-pill h2 {
+        margin: 0;
+        font-family: "Indie Flower", cursive;
+        font-size: 60px;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 1;
+      }
+
+      #skills .skills-bubbles {
+        max-width: 1400px;
+        margin: 30px auto 0;
+      }
+
+      #skills .skills-bubbles img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: -2.5em 0 -2em 0;
+      }
+
+      #skills .skills-bottom {
+        background-color: #ede8e2;
+        color: #244196;
+        position: relative;
+        padding: 60px 90px;
+      }
+
+      #skills .whyme-scribble {
+        position: absolute;
+        top: -50px;
+        left: -80px;
+        width: 500px;
+        height: auto;
+        z-index: 5;
+      }
+
+      #skills .whyme-pill {
+        display: inline-block;
+        background: #6f8fb9;
+        color: #ffffff;
+        border-radius: 4em;
+        padding: 14px 28px;
+        font-family: "Indie Flower", cursive;
+        font-size: 60px;
+        line-height: 1;
+        margin: 0 0 25px 13em;
+      }
+
+      #skills .whyme-text {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      #skills .whyme-text p {
+        font-family: "Inconsolata", monospace;
+        font-size: 25px;
+        line-height: 1.6;
+        margin: 0.6em 0 0 0;
+        color: #244196;
+      }
+
+      #skills .whyme-lines {
+        margin-top: 25px;
+        max-width: 520px;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-end;
+      }
+
+      #skills .whyme-divider2 {
+        height: 5px;
+        width: 100%;
+        margin-top: 1em;
+        background: #244196;
+      }
+
+      #skills .whyme-divider {
+        height: 5px;
+        width: 220px;
+        background: #244196;
+      }
+
+      /* ─────────────── PROJECTS SECTION─────────────── */
+      .project-detail-section {
+        padding: 60px 0;
+      }
+
+      .project-detail-section.burger-ops {
+        background-color: #f5f0eb;
+      }
+
+      .project-detail-section.website-redesign {
+        background-color: #f5f0eb;
+      }
+
+      #projects-detail .project-title-wrapper {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      #projects-detail .project-title-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: -5em auto 0;
+      }
+
+      .project-subtitle {
+        font-family: "Indie Flower", cursive;
+        font-size: 45px;
+        color: #de3783;
+        margin: 20px 0 20px 65px;
+      }
+
+      .project-description {
+        font-size: 25px;
+        line-height: 1.6;
+        color: #244196;
+        margin: 0.4em 0 3em 4em;
+        max-width: 1000px;
+      }
+
+      .all-cards-wrapper {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        padding: 40px;
+        margin: 0 0 50px 0;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 33.333% 33.333% 33.333%;
+        gap: 20px;
+        margin: 0 0 40px 0;
+      }
+
+      .card-placeholder {
+        padding: 0;
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #projects-detail .card-placeholder img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .ingredient-cards-wrapper {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px 0;
+      }
+
+      .ingredient-card-placeholder {
+        width: 180px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #projects-detail .ingredient-card-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .role-section {
+        padding: 70px;
+        margin: 10px 0;
+      }
+
+      .role-title {
+        font-family: "Indie Flower", cursive;
+        font-size: 45px;
+        color: #de3783;
+        margin: -2em 0 1em 0;
+      }
+
+      .role-description {
+        font-size: 25px;
+        line-height: 1.6;
+        color: #244196;
+        margin: -1em 0 0 1.1em;
+      }
+
+      #projects-detail .redesign-wrapper {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto 50px;
+        background: white;
+        padding: 40px;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      #projects-detail .redesign-grid {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        gap: 4%;
+        align-items: start;
+      }
+
+      #projects-detail .preview-card {
+        background: #f5f0eb;
+        border-radius: 18px;
+      }
+
+      #projects-detail .preview-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      #projects-detail .redesign-col {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      #projects-detail .redesign-dog {
+        position: absolute;
+        bottom: -50px;
+        left: 0px;
+        width: 250px;
+        height: auto;
+        z-index: 10;
+      }
+
+      #projects-detail .problem-card {
+        background: #f5f0eb;
+        border-radius: 18px;
+        padding: 26px 28px;
+        box-sizing: border-box;
+      }
+
+      #projects-detail .problem-card h4 {
+        font-family: "Indie Flower", cursive;
+        font-size: 35px;
+        color: #de3783;
+        margin: 0 0 20px 0;
+      }
+
+      #projects-detail .problem-card ul {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 25px;
+        line-height: 1.6;
+        color: #244196;
+      }
+
+      #projects-detail .problem-card a {
+        display: inline-block;
+        margin-top: 16px;
+        color: #de3783;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      #projects-detail .problem-card a:hover {
+        color: #244196;
+        text-decoration: underline;
+      }
+
+      .changes-section {
+        background-color: #f5f0eb;
+        padding: 50px;
+        margin: 0 0 -3em 0;
+      }
+
+      .changes-title {
+        font-family: "Indie Flower", cursive;
+        font-size: 45px;
+        color: #de3783;
+        margin: -60px 0 30px 10px;
+      }
+
+      .changes-text {
+        font-size: 25px;
+        line-height: 1.6;
+        color: #244196;
+        max-width: 1000px;
+        margin: 0 0 60px 50px;
+      }
+
+      /* ─────────────── FOOTER ─────────────── */
+      footer {
+        text-align: center;
+        padding: 1.2em 0 1em 0;
+        background-color: #e6d9c7;
+      }
+
+      .footer-name {
+        font-family: "Inconsolata", monospace;
+        color: #244196;
+        font-size: 55px;
+        margin: 0;
+        line-height: 1;
+        margin-top: -0.1em;
+      }
+
+      .footer-copyright {
+        margin: 1em 0 0 0;
+        font-size: 18px;
+        color: #244196;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="frame">
+      <div class="content-wrapper">
+        <!-- HEADER -->
+        <div class="header-banner">
+          <img src="Banner.jpg" width="1080" height="360" alt="I designed this portfolio banner in Procreate">
+        </div>
+        <!-- NAV -->
+        <nav>
+          <div class="logo">
+            <img src="Logo.PNG" width="120" height="120" alt="Logo designed by Amy">
+          </div>
+          <a href="#home">Home</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+        </nav>
+
+        <!-- HOME:ABOUT ME -->
+        <section id="home">
+          <div class="about-container">
+            <div class="left-column">
+              <img src="Profile.jpg" width="480" height="640" alt="A profile picture of myself">
+              <div class="contact-box">
+                <h3>Contact Me =)</h3>
+                <p><strong>Email:</strong> <a href="mailto:a383liu@uwaterloo.ca">a383liu@uwaterloo.ca</a></p>
+                <p><strong>Phone:</strong> <a href="tel:6477790826">647-779-0826</a></p>
+              </div>
+            </div>
+            <div class="right-column">
+              <h1>About Me</h1>
+              <p>As a junior designer, I believe meaningful digital experiences begin with understanding people. I'm passionate about creating intuitive, human-centred interfaces that make users feel supported and empowered.</p>
+              <p>Having lived in three different countries, I've been shaped by diverse cultures and ways of communicating. This global perspective fuels my curiosity and empathy as a designer. I love exploring cultural behaviours and design traditions around the world, then weaving those insights into inclusive, thoughtful, and culturally aware digital experiences.</p>
+              <img class="about-character" src="dec1.png" width="180" height="180" alt="Decorative cartoon character">
+              <img class="about-dec" src="scribble1.png" width="200" height="200" alt="Decorative sparkle element">
+              <img class="about-dec-line" src="cloudline.png" width="350" height="120" alt="Decorative line element">
+              <img class="about-dec-line about-dec-line-2" src="cloudline.png" width="350" height="120" alt="Decorative line element">
+              <img class="about-dec-line about-dec-line-3" src="cloudline.png" width="350" height="120" alt="Decorative line element at the bottom">
+            </div>
+          </div>
+        </section>
+
+        <!-- HOME:PROJECT OVERVIEW SECTION -->
+        <section id="projects">
+          <div class="projects">
+            <h2>Project Overview</h2>
+            <div class="project-row">
+              <a href="#burger-ops" class="project-card">
+                <div class="project-frame">
+                  <img src="design1.PNG" width="600" height="600" alt="Burger Ops card game project from GBDA 204">
+                </div>
+                <p class="project-name">Card Game Design</p>
+              </a>
+
+              <a href="#website-redesign" class="project-card">
+                <div class="project-frame">
+                  <img src="design2.PNG" width="800" height="450" alt="Purple Bubble Tea website redesign project from GBDA 228">
+                </div>
+                <p class="project-name">Website Redesign</p>
+              </a>
+
+              <a href="#poster-design" class="project-card">
+                <div class="project-frame">
+                  <img src="design3.PNG" width="600" height="900" alt="Poster design project from GBDA 101">
+                </div>
+                <p class="project-name">Poster Design</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+          <div class="edu-top">
+            <div class="edu-top-grid">
+              <div>
+                <h2 class="edu-heading">Education</h2>
+
+                <div class="timeline-item">
+                  <div class="meta-row">
+                    <span class="meta-star">★</span>
+                    <span class="meta-pill">2020 - 2024</span>
+                  </div>
+                  <h3 class="timeline-title">Unionville High School</h3>
+                  <p class="timeline-sub">High School Diploma</p>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="meta-row">
+                    <span class="meta-star">★</span>
+                    <span class="meta-pill">2024 - 2029</span>
+                  </div>
+                  <h3 class="timeline-title">University of Waterloo</h3>
+                  <p class="timeline-sub">
+                    Bachelor's in Global Business and Digital Arts, with a minor in International Trade
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h2 class="edu-heading">Software</h2>
+                <div class="software-item">
+                  <div class="software-badge"><img src="ai.png" alt="Adobe Illustrator"></div>
+                  <div class="stars">
+                    <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span>
+                  </div>
+                </div>
+
+                <div class="software-item">
+                  <div class="software-badge"><img src="ps.png" alt="Adobe Photoshop"></div>
+                  <div class="stars">
+                    <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span>
+                  </div>
+                </div>
+
+                <div class="software-item">
+                  <div class="software-badge"><img src="id.png" alt="Adobe InDesign"></div>
+                  <div class="stars">
+                    <span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span>
+                  </div>
+                </div>
+
+                <div class="software-item">
+                  <div class="software-badge"><img src="figma.png" alt="Figma"></div>
+                  <div class="stars">
+                    <span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span>
+                  </div>
+                </div>
+
+                <div class="software-item">
+                  <div class="software-badge"><img src="pr.png" alt="Adobe Premiere Pro"></div>
+                  <div class="stars">
+                    <span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-exp">
+              <h2 class="edu-heading">Experience</h2>
+              <div class="exp-grid">
+                <div>
+                  <div class="timeline-item">
+                    <div class="meta-row">
+                      <span class="meta-star">★</span>
+                      <span class="meta-pill">2021 - 2022</span>
+                    </div>
+                    <h3 class="timeline-title">Global Dental Centre</h3>
+                    <p class="timeline-sub">Administrative Assistant</p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="meta-row">
+                      <span class="meta-star">★</span>
+                      <span class="meta-pill">2022 - 2022</span>
+                    </div>
+                    <h3 class="timeline-title">Eggette Hut</h3>
+                    <p class="timeline-sub">Sales Cashier</p>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="timeline-item">
+                    <div class="meta-row">
+                      <span class="meta-star">★</span>
+                      <span class="meta-pill">2023 - 2024</span>
+                    </div>
+                    <h3 class="timeline-title">M.Dance Studio</h3>
+                    <p class="timeline-sub">Dance Instructor</p>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="meta-row">
+                      <span class="meta-star">★</span>
+                      <span class="meta-pill">2025 - 2025</span>
+                    </div>
+                    <h3 class="timeline-title">3Dz Dance Studio</h3>
+                    <p class="timeline-sub">Dance Instructor</p>
+                  </div>
+                </div>
+              </div>
+              <img src="scribble8.png" class="butterfly-decoration" width="400" height="400" alt="Decorative butterfly element">
+            </div>
+          </div>
+
+          <div class="edu-extras">
+            <h2 class="extras-title">Extracurriculars</h2>
+            <div class="extras-row">
+              <div class="extra-item">
+                <div class="extra-icon"><img src="drawing.png" width="150" height="150" alt="Drawing icon"></div>
+                <p class="extra-label">Drawing</p>
+              </div>
+
+              <div class="extra-item">
+                <div class="extra-icon"><img src="singing.png" width="150" height="150" alt="Singing icon"></div>
+                <p class="extra-label">Singing</p>
+              </div>
+
+              <div class="extra-item">
+                <div class="extra-icon"><img src="dancing.png" width="150" height="150" alt="Dancing icon"></div>
+                <p class="extra-label">Dancing</p>
+              </div>
+
+              <div class="extra-item">
+                <div class="extra-icon"><img src="laptop.png" width="150" height="150" alt="Movie watching icon"></div>
+                <p class="extra-label">Watching movies</p>
+              </div>
+
+              <div class="extra-item">
+                <div class="extra-icon"><img src="swimming.png" width="150" height="150" alt="Swimming icon"></div>
+                <p class="extra-label">Swimming</p>
+              </div>
+
+              <div class="extra-item">
+                <div class="extra-icon"><img src="tennis.png" width="150" height="150" alt="Tennis icon"></div>
+                <p class="extra-label">Playing tennis</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-bottom">
+            <div class="bottom-grid">
+              <div>
+                <h2 class="edu-heading">Languages</h2>
+                <div class="lang-item">
+                  <div class="lang-name">中文</div>
+                  <div class="lang-level">Fluent</div>
+                </div>
+                <div class="lang-item">
+                  <div class="lang-name">English</div>
+                  <div class="lang-level">Fluent</div>
+                </div>
+                <div class="lang-item">
+                  <div class="lang-name">안녕</div>
+                  <div class="lang-level">Beginner</div>
+                </div>
+              </div>
+
+              <div>
+                <img src="line3.png" class="line-decoration" width="700" height="100" alt="Decorative line element">
+                <table class="involve-table">
+                  <thead>
+                    <tr>
+                      <th>School Involvement</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Fashion for Change</td>
+                    </tr>
+                    <tr>
+                      <td>Haebeat Dance Crew</td>
+                    </tr>
+                    <tr>
+                      <td>Christian Fellowship</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="book-image">
+                  <img src="book.png" width="300" height="400" alt="Book">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+          <div class="skills-top">
+            <div class="skills-inner">
+              <div class="skills-title-pill">
+                <h2>My Skills</h2>
+              </div>
+              <div class="skills-bubbles">
+                <img src="skills.png" width="1400" height="600" alt="Visual map of my skills">
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-bottom">
+            <div class="skills-inner">
+              <h3 class="whyme-pill">Why Me</h3>
+              <img class="whyme-scribble" src="scribble line.png" width="500" height="150" alt="Decorative scribble line">
+              <div class="whyme-text">
+                <p>
+                  I am a quick, thoughtful learner who performs well in collaborative environments. I enjoy contributing ideas, supporting teammates, and incorporating feedback to strengthen the quality of the work. When challenges arise, I remain calm and solution-focused, communicating clearly, staying organized, and working with others to identify practical next steps. Guided by client goals and a user-centered mindset, I aim to create designs that are intuitive, inclusive, and effective. I bring value to teams through reliability, positive collaboration, and a people-focused approach that helps projects move forward smoothly.
+                </p>
+              </div>
+              <div class="whyme-lines">
+                <div class="whyme-divider2"></div>
+                <div class="whyme-divider"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects-detail">
+          <div class="project-detail-section burger-ops" id="burger-ops">
+            <div class="project-title-wrapper">
+              <img class="project-title-img" src="Burger.png" width="900" height="300" alt="Burger Ops">
+            </div>
+
+            <h2 class="project-subtitle">What is Burger Ops</h2>
+            <p class="project-description">
+              Burger Ops is a discussion-based card game that simulates real fast-food industry challenges during supply chain disruptions.
+              Players act as managers racing to assemble their signature burgers while navigating obstacles, debating solutions, and managing limited resources.
+            </p>
+
+            <div class="all-cards-wrapper">
+              <div class="cards-grid">
+                <div class="card-placeholder">
+                  <img src="instruction.png" width="600" height="400" alt="Core Ingredient Card">
+                </div>
+                <div class="card-placeholder">
+                  <img src="order-card.png" width="600" height="400" alt="Order Card">
+                </div>
+                <div class="card-placeholder">
+                  <img src="shipment-card.png" width="600" height="400" alt="Shipment Card">
+                </div>
+              </div>
+
+              <div class="ingredient-cards-wrapper">
+                <div class="ingredient-card-placeholder"><img src="sauce.png" width="180" height="250" alt="Sauce Ingredient Card"></div>
+                <div class="ingredient-card-placeholder"><img src="ketchup.png" width="180" height="250" alt="Ketchup Card"></div>
+                <div class="ingredient-card-placeholder"><img src="mayo.png" width="180" height="250" alt="Mayo Card"></div>
+                <div class="ingredient-card-placeholder"><img src="mustard.png" width="180" height="250" alt="Mustard Card"></div>
+                <div class="ingredient-card-placeholder"><img src="relish.png" width="180" height="250" alt="Relish Card"></div>
+
+                <div class="ingredient-card-placeholder"><img src="topping.png" width="180" height="250" alt="Topping Ingredient Card"></div>
+                <div class="ingredient-card-placeholder"><img src="bacon.png" width="180" height="250" alt="Bacon Card"></div>
+                <div class="ingredient-card-placeholder"><img src="pickles.png" width="180" height="250" alt="Pickles Card"></div>
+                <div class="ingredient-card-placeholder"><img src="cheese.png" width="180" height="250" alt="Cheese Card"></div>
+                <div class="ingredient-card-placeholder"><img src="onion.png" width="180" height="250" alt="Onion Card"></div>
+
+                <div class="ingredient-card-placeholder"><img src="core.png" width="180" height="250" alt="Core ingredient card"></div>
+                <div class="ingredient-card-placeholder"><img src="bun.png" width="180" height="250" alt="Buns card"></div>
+                <div class="ingredient-card-placeholder"><img src="patty.png" width="180" height="250" alt="Patty card"></div>
+                <div class="ingredient-card-placeholder"><img src="tomato.png" width="180" height="250" alt="Tomato Card"></div>
+                <div class="ingredient-card-placeholder"><img src="lettuce.png" width="180" height="250" alt="Lettuce Card"></div>
+              </div>
+            </div>
+
+            <h2 class="project-subtitle">Card Types</h2>
+            <p class="project-description">
+              The game uses five card types to guide problem-solving, strategic trading, and ingredient collection.
+              The first player to complete their burger earns the "Manager of the Year" title.
+            </p>
+
+            <div class="role-section">
+              <h2 class="role-title">My Role</h2>
+              <p class="role-description">
+                As part of a group project, I designed the core game mechanics, rule system, and card structure.
+                The game encourages critical thinking, teamwork, and adaptive decision-making, reflecting key service design principles in an engaging format.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-detail-section website-redesign" id="website-redesign">
+            <div class="project-title-wrapper">
+              <img class="project-title-img" src="website.png" width="900" height="300" alt="Website Redesign">
+            </div>
+
+            <h2 class="project-subtitle">Why needs redesign</h2>
+            <p class="project-description">
+              The original Purple Bubble Tea website needed a redesign because its visuals were flat and inconsistent, the content lacked personality and clarity,
+              and the navigation was confusing for users.
+            </p>
+
+            <div class="redesign-wrapper">
+              <img class="redesign-dog" src="dog.png" width="250" height="250" alt="Decorative dog character">
+
+              <div class="redesign-grid">
+                <div class="redesign-col">
+                  <div class="preview-card"><img src="w1.png" width="560" height="350" alt="Purple Bubble Tea homepage before redesign"></div>
+                  <div class="preview-card"><img src="w3.png" width="560" height="350" alt="Purple Bubble Tea menu page before redesign"></div>
+                </div>
+
+                <div class="redesign-col">
+                  <div class="preview-card"><img src="w2.png" width="560" height="350" alt="Purple Bubble Tea contact page before redesign"></div>
+                  <div class="preview-card"><img src="w4.png" width="560" height="350" alt="Purple Bubble Tea about page before redesign"></div>
+
+                  <div class="problem-card">
+                    <h4>Main Problems Identified</h4>
+                    <ul>
+                      <li>Visual style felt inconsistent</li>
+                      <li>Hierarchy wasn't clear</li>
+                      <li>Navigation and page flow were confusing</li>
+                      <li>Readability issues</li>
+                    </ul>
+                    <a href="https://www.purplebubble.ca/" target="_blank" rel="noopener noreferrer">
+                      Click to Visit Purple Bubble original website
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="changes-section">
+              <h2 class="changes-title">What changed</h2>
+              <p class="changes-text">
+                The redesigned website introduces a warmer colour palette, improved typography, and clearer visual hierarchy to enhance readability and brand warmth.
+                Layouts were reorganized for clarity, including a structured timetable for store hours and a more visible contact form.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <h2 class="footer-name">Amy Liu</h2>
+          <p class="footer-copyright">© 2025 Amy Liu. All Rights Reserved.</p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
